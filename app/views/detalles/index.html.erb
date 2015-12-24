@@ -1,0 +1,96 @@
+<p id="notice"><%= notice %></p>
+
+<center><h1>Lista de detalles</h1></center>
+
+<%= form_tag detalles_path, :method => 'get', class: 'form-inline' do %>
+<% content_tag :label do %>
+
+<%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Buscar por detalle" %>
+
+<%= button_tag(type: 'submit', class: "btn btn-success", :name => nil) do %>
+  <span class="glyphicon glyphicon-search"></span> 
+<% end %> 
+
+<% end %>
+<% end %>
+
+
+<br>
+
+
+<%= link_to new_detalle_path, class: "btn btn-primary", remote: true do %>
+<span class="glyphicon glyphicon-plus"></span> Nuevo
+<% end %> |
+
+<%= link_to detalles_path(format: "xls"), class: "btn btn-warning" do %>
+<span class="glyphicon glyphicon-cloud-download"></span> EXCEL
+<% end %> 
+
+
+<br><br>
+<%= form_tag edit_multiple_detalles_path do %>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Nombre pro</th>
+      <th>Cantidad</th>
+      <th>Precio unitario</th>
+      <th>IVA</th>
+      <th>Total precio</th>
+      <th>Total IVA</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <%= render @detalles %>
+  </tbody>
+</table>
+<%= submit_tag "Editar detalles", class: "btn btn-success" %><% end %>
+
+<br><br>
+
+<div class="col-md-4">
+<ul class="list-group">
+
+  <li class="list-group-item">
+    <span class="badge"><%= @detalles.sum(:total_iva) %></span>
+    Sumatoria total:
+  </li>
+  <li class="list-group-item">
+    <span class="badge"><%= @detalles.count %></span>
+    Detalles:
+  </li>
+  <li class="list-group-item">
+    <span class="badge"><%= @detalles.sum(:total_pre) %></span>
+    Total IVA:
+  </li>
+  <li class="list-group-item">
+    <span class="badge"><%= @detalles.maximum(:total_pre) %></span>
+    Maximo Total:
+  </li>
+  <li class="list-group-item">
+    <span class="badge"><%= @detalles.maximum(:cantidad) %></span>
+    Cantidad maxima:
+  </li>
+  
+  <li class="list-group-item">
+    <span class="badge"><%= @detalles.average(:total_pre) %></span>
+    Promedio total:
+  </li>
+  
+</ul>
+</div>
+
+<br>
+
+<%= will_paginate @detalles, :previous_label => '&laquo; Anterior', :next_label => 'Siguiente
+&raquo;' %>
+<br>
+
+
+
+ 
+
+

@@ -1,0 +1,151 @@
+<div class="panel panel-warning">
+  <div class="panel-heading">
+    <h3 class="panel-title">NUEVO CLIENTE</h3>
+  </div>
+  <div class="panel-body">
+<%= simple_form_for(@cliente, :html => { :class => 'form-horizontal', remote: true } ) do |f| %>
+  <% if @cliente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
+
+      <ul>
+      <% @cliente.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="row">
+  <div class="col-xs-6 col-sm-4">
+  <div class="form-group">
+  <label for="name" class="col-sm-4 control-label">Nombre</label>
+  <div class="col-md-8">
+  <%= f.input_field :nombre, class: 'form-control' %>
+  </div>
+  </div>
+  </div>
+  
+  <div class="col-xs-6 col-sm-4">
+  <div class="form-group">
+  <label for="name" class="col-sm-4 control-label">Apellido</label>
+  <div class="col-md-8">
+  <%= f.input_field :apellido, class: 'form-control' %>
+  </div>
+  </div>
+  </div>
+
+  <div class="col-xs-6 col-sm-4">
+  <div class="form-group">
+  <label for="name" class="col-sm-4 control-label">Direccion</label>
+  <div class="col-md-8">
+  <%= f.input_field :direccion, class: 'form-control' %>
+  </div>
+  </div>
+  </div>
+  
+  <div class="col-xs-6 col-sm-4">
+  <div class="form-group">
+  <label for="name" class="col-sm-4 control-label">Fecha nacimiento</label>
+  <div class="col-md-8">
+      <%= f.text_field :fch_nacimiento, 'data-provide' => "datepicker", class: "form-control", size: "20", width: "20", heigth: "62" %>
+  </div>
+  </div>
+  </div>
+    
+  <div class="col-xs-6 col-sm-4">
+  <div class="form-group">
+  <label for="name" class="col-sm-4 control-label">Genero</label>
+  <div class="col-md-8">
+    Masculino: <%= f.radio_button(:genero, true) %>
+    Femenino: <%= f.radio_button(:genero, false) %>
+  </div>
+  </div>
+  </div>
+  
+  <div class="col-xs-6 col-sm-4">
+  <div class="form-group">
+  <label for="name" class="col-sm-4 control-label">Telefono 2</label>
+  <div class="col-md-8">
+    <%= f.input_field :telefono1, class: 'form-control' %>
+  </div>
+  </div>
+  </div>
+  
+  <div class="col-xs-6 col-sm-4">
+  <div class="form-group">
+  <label for="name" class="col-sm-4 control-label">Telefono 2</label>
+  <div class="col-md-8">
+    <%= f.input_field :telefono2, class: 'form-control' %>
+  </div>
+  </div>
+  </div>
+
+  <div class="col-xs-6 col-sm-4">
+  <div class="form-group">
+  <label for="name" class="col-sm-4 control-label">E-mail</label>
+  <div class="col-md-8">
+    <%= f.input_field :mail, class: 'form-control' %>
+  </div>
+  </div>
+  </div>
+  
+  <div class="col-xs-6 col-sm-4">
+  <div class="form-group">
+  <label for="name" class="col-sm-4 control-label">Municipio</label>
+  <div class="col-md-8">
+     <%= f.autocomplete_field :municipio_nombre, autocomplete_municipio_nombre_clientes_path, 
+        :id_element => '#id_municipio',   class: "form-control" %>
+         <%= hidden_field_tag 'id_municipio' %>
+  </div>
+  </div>
+  </div>
+  
+  <div class="col-xs-6 col-sm-4">
+  <div class="form-group">
+  <label for="name" class="col-sm-3 control-label">Cedula</label>
+  <div class="col-md-8">
+    <%= f.input_field :docIdentidad, class: 'form-control' %>
+  </div>
+  </div>
+  </div>
+  
+  
+ <div class="col-xs-6 col-sm-4">
+  <div class="form-group">
+  <label for="name" class="col-sm-4 control-label-left">Tipo documento</label>
+  <div class="col-md-8">
+    <%= f.collection_select :tipo_doc_id, TipoDoc.all, :id, :nombre, {}, class: "form-control", prompt: "Seleccione Municipio" %>
+  </div>
+  </div>
+  </div>
+  
+  <div class="col-xs-6 col-sm-4">
+   <div class="form-group">
+  <label for="name" class="col-sm-4 control-label">Tipo documento</label>
+  <div class="col-md-8">
+    <%= f.collection_select :estado_civil_id, EstadoCivil.all, :id, :nombre, {}, class: "form-control", prompt: "Seleccione Municipio" %>
+  </div>
+  </div> 
+   </div>
+ 
+ <div class="col-xs-6 col-sm-4">
+  <div class="form-group">
+  <label for="name" class="col-sm-4 control-label">Telefono movil</label>
+  <div class="col-md-8">
+    <%= f.input_field :tMovil, class: 'form-control' %>
+  </div>
+  </div>
+ </div>
+ 
+  <div class="form-group">
+	<div class="col-sm-offset-4 col-sm-10">
+    <%= button_tag(type: 'submit', class: "btn btn-success", :name => nil) do %>
+      <span class="glyphicon glyphicon-floppy-disk"></span>  Guardar
+    <% end %>
+  </div>
+  </div>
+  
+<% end %>
+</div>
+</div>

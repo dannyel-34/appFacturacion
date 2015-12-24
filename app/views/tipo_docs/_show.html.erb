@@ -1,0 +1,17 @@
+<div class="tipo_doc">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @tipo_doc.nombre %>
+</p>
+
+<center>
+<%= link_to edit_tipo_doc_path(@tipo_doc), class: "btn btn-warning" do %>
+<span class="glyphicon glyphicon-edit"></span>
+<% end %> |
+<%= link_to tipo_docs_path, class: "btn btn-success" do %>
+<span class="glyphicon glyphicon-share-alt"></span>
+<% end %>
+</center>
+</div>

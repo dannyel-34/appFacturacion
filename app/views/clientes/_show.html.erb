@@ -1,0 +1,89 @@
+<div class="cliente">
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">Cliente <%= @cliente.id %></h3>
+  </div>
+  <div class="panel-body">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombres:</strong>
+  <%= @cliente.nombre %> 
+</p>
+
+<p>
+  <strong>Apellido:</strong>
+  <%= @cliente.apellido %> 
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @cliente.direccion %>
+</p>
+
+<p>
+  <strong>Fch nacimiento:</strong>
+  <%= @cliente.fch_nacimiento %>
+</p>
+
+<p>
+  <strong>Genero:</strong>
+  <%= mostrar_genero(@cliente.genero) %>
+</p>
+
+<p>
+  <strong>Telefono1:</strong>
+  <%= @cliente.telefono1 %>
+</p>
+
+<p>
+  <strong>Telefono2:</strong>
+  <%= @cliente.telefono2 %>
+</p>
+
+<p>
+  <strong>Mail:</strong>
+  <%= @cliente.mail %>
+</p>
+
+<p>
+  <strong>Municipio:</strong>
+  <%= @cliente.municipio %>
+</p>
+
+<p>
+  <strong>Docidentidad:</strong>
+  <%= @cliente.docIdentidad %>
+</p>
+
+<p>
+  <strong>Tipo docs:</strong>
+  <%= @cliente.tipo_doc.nombre %>
+</p>
+
+<p>
+  <strong>Estado civils:</strong>
+  <%= @cliente.estado_civil.nombre %>
+</p>
+
+<p>
+  <strong>Tmovil:</strong>
+  <%= @cliente.tMovil %>
+</p>
+
+
+
+<%= link_to edit_cliente_path(@cliente), class: "btn btn-warning" do  %>
+<span class="glyphicon glyphicon-edit"></span> Editar
+<% end %> |
+
+<%= link_to clientes_path, class: "btn btn-primary" do %>
+<span class="glyphicon glyphicon-log-out"></span> Atras
+<% end %> |
+
+<%= link_to cliente_path(@cliente, :format => 'pdf'), class: "btn btn-default" do %>
+  <span class="glyphicon glyphicon-cloud-download"></span> PDF
+<% end %>
+</div>
+</div>
+</div>

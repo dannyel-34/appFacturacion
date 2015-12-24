@@ -1,0 +1,20 @@
+<tr id=<%= "modo_pago_#{modo_pago.id}" %>>
+    <td><%= modo_pago.nombre %></td>
+    <td><%= modo_pago.otros_detalle%></td>
+   <td><%= link_to modo_pago, class: "btn btn-info btn-sm", remote: true do %>
+        <span class="glyphicon glyphicon-eye-open"></span>
+        <% end %>
+    </td>
+      
+    <td>
+        <%= link_to edit_modo_pago_path(modo_pago), class: "btn btn-warning btn-sm", remote: true do %>
+        <span class="glyphicon glyphicon-edit"></span>
+        <% end %>
+    </td>
+        
+    <td>
+        <%= link_to modo_pago, method: :delete, data: { confirm: 'Estas seguro?' }, remote: true, class: "btn btn-danger btn-sm" do %>
+        <span class="glyphicon glyphicon-remove"></span>
+        <% end %>
+    </td>
+</tr>  

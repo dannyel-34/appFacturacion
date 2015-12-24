@@ -1,0 +1,33 @@
+<tr id=<%= "detalle_#{detalle.id}" %>>
+        <td><%= check_box_tag "detalle_ids[]", detalle.id %></td>
+        <td><%= detalle.nombre_pro %></td>
+        <td><%= detalle.cantidad %></td>
+        <td><%= detalle.precio_u %></td>
+        <td><%= detalle.iva %></td>
+        <td><%= detalle.total_pre %></td>
+        <td><%= detalle.total_iva %></td>
+
+
+        <td><%= link_to detalle, class: "btn btn-info btn-sm", remote: true do %>
+          <span class="glyphicon glyphicon-eye-open"></span>
+        <% end %>
+        </td>
+      
+        <td>
+          <%= link_to edit_detalle_path(detalle), class: "btn btn-warning btn-sm", remote: true do %>
+            <span class="glyphicon glyphicon-edit"></span>
+          <% end %>
+        </td>
+        
+        <td>
+          <%= link_to detalle, method: :delete, data: { confirm: 'Estas seguro?' }, remote: true, class: "btn btn-danger btn-sm" do %>
+            <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+        </td>
+        
+        <td>
+          <%= link_to detalle_path(detalle, :format => 'pdf'), class: "btn btn-default" do %>
+            <span class="glyphicon glyphicon-cloud-download"></span>
+          <% end %>
+        </td>
+</tr>     

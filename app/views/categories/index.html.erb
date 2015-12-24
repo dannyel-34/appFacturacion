@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<center><h1>Lista de categorias</h1></center>
+
+<%= form_tag categories_path, :method => 'get', class: 'form-inline' do %>
+<% content_tag :label do %>
+
+<%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Buscar categoria" %>
+
+<%= button_tag(type: 'submit', class: "btn btn-success", :name => nil) do %>
+  <span class="glyphicon glyphicon-search"></span> 
+<% end %>
+
+<% end %>
+<% end %>
+
+
+<br>
+
+<br>
+
+<%= link_to new_category_path, class: "btn btn-primary", remote: true do %>
+<span class="glyphicon glyphicon-plus"></span> Nuevo
+<% end %>
+
+<br><br>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @categories %>
+  </tbody>
+</table>
+
+<br>
+
+
+<br>
+
+<%= will_paginate @categories, :previous_label => '&laquo; Anterior', :next_label => 'Siguiente
+&raquo;' %>
+<br>
+
+<br><br>
+ 
+<div class="col-md-4">
+<ul class="list-group">
+  <li class="list-group-item">
+    <span class="badge"><%= @categories.count %></span>
+    Productos:
+  </li>
+</ul>
+</div>

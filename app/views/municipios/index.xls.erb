@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+
+  <Worksheet ss:Name="Regiones municipales">
+
+    <Table>
+
+      <Row>
+
+        <Cell><Data ss:Type="String">Nombre Departamento</Data></Cell>
+
+        <Cell><Data ss:Type="String">Nombre Municipio</Data></Cell>
+
+        <Cell><Data ss:Type="String">Nombre Centro Poblado</Data></Cell>
+
+        <Cell><Data ss:Type="String">Nombre</Data></Cell>
+
+      
+      </Row>
+
+    <% @municipios.each do |municipio| %>
+
+      <Row>
+
+
+        <Cell><Data ss:Type="String"><%= municipio.nombre_departamento %></Data></Cell>
+
+        <Cell><Data ss:Type="String"><%= municipio.nombre_municipio %></Data></Cell>
+
+        <Cell><Data ss:Type="String"><%= municipio.nombre_centro_poblado %></Data></Cell>
+
+        <Cell><Data ss:Type="String"><%= municipio.nombre %></Data></Cell>
+
+
+      </Row>
+
+    <% end %>
+
+    </Table>
+
+  </Worksheet>
+
+</Workbook>

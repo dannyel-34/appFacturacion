@@ -1,0 +1,31 @@
+<tr id=<%= "factura_#{factura.id}" %>>
+        <td><%= factura.id %></td>
+        <td><%= factura.fecha %></td>
+        <td><%= factura.num_pago %></td>
+        <td><%= factura.cliente_id %></td>
+        <td><%= factura.modo_pago_id %></td>
+        
+        <td><%= link_to factura, class: "btn btn-info btn-sm", remote: true do %>
+          <span class="glyphicon glyphicon-eye-open"></span>
+        <% end %>
+        </td>
+      
+        <td>
+          <%= link_to edit_factura_path(factura), class: "btn btn-warning btn-sm", remote: true do %>
+            <span class="glyphicon glyphicon-edit"></span>
+          <% end %>
+        </td>
+        
+        <td>
+          <%= link_to factura, method: :delete, data: { confirm: 'Estas seguro?' }, remote: true, class: "btn btn-danger btn-sm" do %>
+            <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+        </td>
+        
+        <td>
+          <%= link_to factura_path(factura, :format => 'pdf'), class: "btn btn-default btn-sm" do %>
+            <span class="glyphicon glyphicon-cloud-download"></span>
+          <% end %>
+        </td>
+
+</tr>  

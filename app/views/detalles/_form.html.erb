@@ -1,0 +1,67 @@
+<div class="panel panel-warning">
+  <div class="panel-heading">
+    <h3 class="panel-title">NUEVO DETALLE</h3>
+  </div>
+  <div class="panel-body">
+    <br>
+<%= simple_form_for(@detalle, :html => { :class => 'form-horizontal', remote: true } ) do |f| %>
+  <% if @detalle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@detalle.errors.count, "error") %> prohibited this detalle from being saved:</h2>
+
+      <ul>
+      <% @detalle.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <div class="form-group">
+   	<label for="name" class="col-sm-4 control-label-left">Producto: </label>
+   	<div class="col-md-8">
+      	<%= f.collection_select :nombre_pro, Producto.all, :id, :nombre, {}, class: "form-control", prompt: "Seleccione Municipio" %>
+   	</div>
+  </div>
+   <div class="form-group">
+   	<label for="name" class="col-sm-4 control-label-left">Cantidad</label>
+   	<div class="col-md-8">
+      	<%= f.number_field :cantidad, class: 'form-control' %>
+   	</div>
+  </div>
+  <div class="form-group">
+   	<label for="name" class="col-sm-4 control-label-left">Precio Unitario</label>
+   	<div class="col-md-8">
+      	<%= f.number_field :precio_u, class: 'form-control' %>
+   	</div>
+  </div>
+
+  <div class="form-group">
+   	<label for="name" class="col-sm-4 control-label-left">IVA</label>
+   	<div class="col-md-8">
+      	<%= f.number_field :iva, class: 'form-control' %>
+   	</div>
+  </div>
+  <div class="form-group">
+   	<label for="name" class="col-sm-4 control-label-left">Total precio</label>
+   	<div class="col-md-8">
+      	<%= f.number_field :total_pre, class: 'form-control' %>
+   	</div>
+  </div>
+  <div class="form-group">
+   	<label for="name" class="col-sm-4 control-label-left">Total IVA</label>
+   	<div class="col-md-8">
+      	<%= f.number_field :total_iva, class: 'form-control' %>
+   	</div>
+  </div>
+  <br><br>
+  <div class="form-group">
+	<div class="col-sm-offset-4 col-sm-10">
+    <%= button_tag(type: 'submit', class: "btn btn-success", :name => nil) do %>
+      <span class="glyphicon glyphicon-floppy-disk"></span>  Guardar
+    <% end %>
+  </div>
+  </div>
+<% end %>
+</div>
+</div>

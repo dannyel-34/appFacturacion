@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+
+  <Worksheet ss:Name="Productos">
+
+    <Table>
+
+      <Row>
+          
+        <Cell><Data ss:Type="Number">ID</Data></Cell>  
+
+        <Cell><Data ss:Type="String">Nombre producto</Data></Cell>
+
+        <Cell><Data ss:Type="integer">Precio Unitario</Data></Cell>
+
+        <Cell><Data ss:Type="Integer">Stock</Data></Cell>
+
+        <Cell><Data ss:Type="String">Categoria</Data></Cell>
+
+        <Cell><Data ss:Type="String">Producto</Data></Cell>
+
+    
+      </Row>
+
+    <% @productos.each do |producto| %>
+
+      <Row>
+
+        <Cell><Data ss:Type="Number"><%= producto.id %></Data></Cell>
+
+        <Cell><Data ss:Type="String"><%= producto.nombre %></Data></Cell>
+
+        <Cell><Data ss:Type="Integer"><%= producto.precio_uni %></Data></Cell>
+
+        <Cell><Data ss:Type="Integer"><%= producto.stock %></Data></Cell>
+        
+        <Cell><Data ss:Type="String"><%= producto.category.nombre %></Data></Cell>
+
+        <Cell><Data ss:Type="String"><%= producto.arch_file_name %></Data></Cell>
+
+
+      </Row>
+
+    <% end %>
+
+    </Table>
+
+  </Worksheet>
+
+</Workbook>

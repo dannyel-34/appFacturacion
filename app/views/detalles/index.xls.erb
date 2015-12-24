@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+
+  <Worksheet ss:Name="Detalles">
+
+    <Table>
+
+      <Row>
+          
+        <Cell><Data ss:Type="Number">ID</Data></Cell>  
+
+        <Cell><Data ss:Type="String">Nombre del producto</Data></Cell>
+
+        <Cell><Data ss:Type="Integer">Cantidad</Data></Cell>
+
+        <Cell><Data ss:Type="Integer">Precio Unitario</Data></Cell>
+
+        <Cell><Data ss:Type="Integer">Iva</Data></Cell>
+
+        <Cell><Data ss:Type="String">Total iva</Data></Cell>
+
+        <Cell><Data ss:Type="String">Total precio</Data></Cell>
+
+
+
+      
+
+      </Row>
+
+    <% @detalles.each do |detalle| %>
+
+      <Row>
+
+        <Cell><Data ss:Type="Number"><%= detalle.id %></Data></Cell>
+
+        <Cell><Data ss:Type="String"><%= detalle.nombre_pro %></Data></Cell>
+
+        <Cell><Data ss:Type="Number"><%= detalle.cantidad %></Data></Cell>
+
+        <Cell><Data ss:Type="Number"><%= detalle.iva %></Data></Cell>
+
+        <Cell><Data ss:Type="Number"><%= detalle.precio_u %></Data></Cell>
+
+        <Cell><Data ss:Type="Number"><%= detalle.total_iva %></Data></Cell>
+
+        <Cell><Data ss:Type="Number"><%= detalle.total_pre %></Data></Cell>
+
+
+
+      </Row>
+
+    <% end %>
+
+    </Table>
+
+  </Worksheet>
+
+</Workbook>

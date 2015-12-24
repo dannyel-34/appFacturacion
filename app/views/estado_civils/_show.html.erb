@@ -1,0 +1,17 @@
+<div class="estado_civil">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @estado_civil.nombre %>
+</p>
+
+<center>
+<%= link_to edit_estado_civil_path(@estado_civil), class: "btn btn-warning" do %>
+<span class="glyphicon glyphicon-edit"></span>
+<% end %> |
+<%= link_to estado_civils_path, class: "btn btn-success" do %>
+<span class="glyphicon glyphicon-share-alt"></span>
+<% end %>
+</center>
+</div>

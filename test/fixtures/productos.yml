@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  precio_uni: 1.5
+  stock: 1.5
+  cantidad: 1
+  category_id: 
+  arch: MyString
+
+two:
+  nombre: MyString
+  precio_uni: 1.5
+  stock: 1.5
+  cantidad: 1
+  category_id: 
+  arch: MyString

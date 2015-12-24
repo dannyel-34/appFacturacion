@@ -1,0 +1,96 @@
+<div class="col-md-4 blog-main box text-center" id="post_<%= post.id %>">
+    
+    <div class="panel panel-info" ><!-- Panel info -->
+        
+        <div class="panel-heading">
+            
+            <h3 class="panel-title"><%= post.title %></h3>
+            <p><%= post.content %></p>
+            
+        </div>
+        
+        <div class="panel-body"><!-- Panel body -->
+            
+            <div style="color: #388206;"><%= time_ago_in_words(post.created_at) %></div>
+            <br>
+            
+            <div class="btn-group" role="group" aria-label="...">
+                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myupdatepost_<%= post.id %>">
+                    <span class="glyphicon glyphicon-edit"></span>
+                </button>
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myshowpost_<%= post.id %>">
+                    <span class="glyphicon glyphicon-eye-open"></span>
+                </button>
+                <%= link_to post, method: :delete, class: "btn btn-danger", remote: true do %>
+                  <span class="glyphicon glyphicon-remove"></span>
+                <% end %>
+            </div>
+            
+        </div><!-- Panel body -->
+        
+    </div><!-- Panel info -->
+    
+    <!-- Modal - update posts -->
+    <%= form_for(post, :method => :put, remote: true) do |f| %>
+        <div class="modal fade" id="myupdatepost_<%= post.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Editar</h4>
+              </div>
+              
+              <div class="modal-body" style="background: #eee; color: #000;">
+                
+                <div class="field">
+                  <%= f.label :titulo %><br>
+                  <%= f.text_area :title, class: "form-control post_title" %>              
+                </div>
+                
+                <div class="field">
+                  <%= f.label :comentario %><br>
+                  <%= f.text_area :content, class: "form-control post_content" %>
+                </div>
+                
+              </div>
+              
+              <div class="modal-footer" >
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <%= submit_tag "Editar", class: "btn btn-primary" %>
+              </div>
+            </div>
+          </div>
+        </div>
+    <% end %>
+    
+    <!-- Modal show posts -->
+    <div class="modal fade" id="myshowpost_<%= post.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Mostrar</h4>
+          </div>
+          
+          <div class="modal-body" style="background: #eee; color: #000; font-size: 18px;">
+            
+            <p>
+              Titulo: <%= post.title %>
+            </p>
+            
+            <p>
+              Comentario: <%= post.content %>
+            </p>
+            
+          </div>
+          
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+</div>

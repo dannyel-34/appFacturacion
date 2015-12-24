@@ -1,0 +1,46 @@
+<br><br>
+<div class="panel panel-warning">
+  <div class="panel-heading">
+    <center><h3 class="panel-title">EDITAR DETALLES</h3></center>
+  </div>
+  <div class="panel-body">
+    
+<%= form_for (:detalle), :url => update_multiple_detalles_path, :html => { :method => :put } do |f| %>
+  <ul> 
+<% for detalle in @detalles %>
+  <li>
+     <span class="label label-warning"> 
+     <%= hidden_field_tag "detalle_ids[]", detalle.id %>
+     <%= detalle.nombre_pro %>
+     </span>
+  </li> 
+
+<% end %>
+  </ul>
+<br><br>
+ <div class="form-group">
+   	<label for="name" class="col-sm-4 control-label-left">Producto: </label>
+   	<div class="col-md-6">
+      	<%= f.collection_select :nombre_pro, Producto.all, :id, :nombre, {}, class: "form-control", prompt: "Seleccione Municipio" %>
+   	</div>
+  </div>
+  <br><br>
+   <div class="form-group">
+   	<label for="name" class="col-sm-4 control-label-left">Cantidad</label>
+   	<div class="col-md-6">
+      	<%= f.number_field :cantidad, class: 'form-control', placeholder: "cantidad" %>
+   	</div>
+  </div>
+  
+<br><br>
+  <div class="form-group">
+	<div class="col-sm-offset-6 col-sm-10">
+    <%= button_tag(type: 'submit', class: "btn btn-success", :name => nil) do %>
+      <span class="glyphicon glyphicon-floppy-disk"></span>  Guardar
+    <% end %>
+  </div>
+  </div>
+
+<% end %>
+</div>
+</div>

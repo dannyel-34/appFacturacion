@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<center><h1>Lista de estado civil</h1></center>
+
+<%= link_to new_estado_civil_path, class: "btn btn-primary", remote: true do %>
+<span class="glyphicon glyphicon-plus"></span> Nuevo
+<% end %>
+
+<br><br>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @estado_civils %>
+  </tbody>
+</table>
+
+<br>
+
+

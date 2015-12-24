@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  num_pago: 1
+  fecha: 2015-12-23
+  cliente_id: 
+  modo_pago_id: 
+
+two:
+  num_pago: 1
+  fecha: 2015-12-23
+  cliente_id: 
+  modo_pago_id: 

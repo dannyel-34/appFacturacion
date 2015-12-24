@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre_pro: MyString
+  cantidad: 1
+  precio_u: 1.5
+  iva: 1.5
+  total_pre: 1.5
+  total_iva: 1.5
+  factura_id: 
+  producto_id: 
+
+two:
+  nombre_pro: MyString
+  cantidad: 1
+  precio_u: 1.5
+  iva: 1.5
+  total_pre: 1.5
+  total_iva: 1.5
+  factura_id: 
+  producto_id: 

@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lista clientes</h1>
+
+
+<%= form_tag clientes_path, :method => 'get', class: 'form-inline' do %>
+<% content_tag :label do %>
+
+<%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Buscar Municipio" %>
+
+<%= button_tag(type: 'submit', class: "btn btn-success", :name => nil) do %>
+  <span class="glyphicon glyphicon-search"></span> 
+<% end %>
+
+<% end %>
+<% end %>
+
+
+<br>
+
+<%= link_to new_cliente_path, class: "btn btn-primary", remote: true do %>
+<span class="glyphicon glyphicon-plus"></span> Nuevo
+<% end %>
+
+<br><br>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nombres</th>
+      <th>Apellido</th>
+      <th>Telefono 1</th>
+      <th>Correo eletronico</th>
+      <th>Documento ID</th>
+      <th>Celular</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @clientes %>
+  </tbody>
+</table>
+
+<%= will_paginate @clientes, :previous_label => '&laquo; Anterior', :next_label => 'Siguiente
+&raquo;' %>
+<br>
+
+<br><br>
+ 
+<div class="col-md-4">
+<ul class="list-group">
+  <li class="list-group-item">
+    <span class="badge"><%= @clientes.count %></span>
+    Clientes:
+  </li>
+</ul>
+</div>

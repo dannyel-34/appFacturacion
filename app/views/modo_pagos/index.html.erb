@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<center><h1>Lista de modo pagos</h1></center>
+
+<%= link_to new_modo_pago_path, class: "btn btn-primary", remote: true do %>
+<span class="glyphicon glyphicon-plus"></span> Nuevo
+<% end %>
+
+<br><br>
+
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Otros detalle</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @modo_pagos  %>
+  </tbody>
+</table>
+
+<br><br>
+ 
+<div class="col-md-4">
+<ul class="list-group">
+  <li class="list-group-item">
+    <span class="badge"><%= @modo_pagos.count %></span>
+    Modo de pagos:
+  </li>
+</ul>
+</div>

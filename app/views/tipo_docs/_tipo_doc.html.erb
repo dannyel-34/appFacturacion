@@ -1,0 +1,17 @@
+<tr id=<%= "tipo_doc_#{tipo_doc.id}" %>>
+   <td><%= tipo_doc.nombre %></td>
+    <td><%= link_to tipo_doc, class: "btn btn-info btn-sm", remote: true do %>
+        <span class="glyphicon glyphicon-eye-open"></span>
+    <% end %>
+    </td>
+    <td>
+        <%= link_to edit_tipo_doc_path(tipo_doc), class: "btn btn-warning btn-sm", remote: true do %>
+            <span class="glyphicon glyphicon-edit"></span>
+        <% end %>
+    </td>
+    <td>
+        <%= link_to tipo_doc, method: :delete, data: { confirm: 'Estas seguro?' }, remote: true, class: "btn btn-danger btn-sm" do %>
+            <span class="glyphicon glyphicon-remove"></span>
+        <% end %>
+    </td>
+</tr>

@@ -1,0 +1,43 @@
+<div class="panel panel-warning">
+  <div class="panel-heading">
+    <center><h3 class="panel-title">NUEVO MODO DE PAGO</h3></center>
+  </div>
+  <div class="panel-body">
+<%= simple_form_for(@modo_pago, :html => { :class => 'form-horizontal', remote: true } ) do |f| %>
+  <% if @modo_pago.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@modo_pago.errors.count, "error") %> prohibited this modo_pago from being saved:</h2>
+
+      <ul>
+      <% @modo_pago.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="form-group">
+   	<label for="name" class="col-sm-3 control-label">Nombre</label>
+   	<div class="col-md-8">
+      <%= f.input_field :nombre, class: 'form-control'  %>
+    </div>
+    </div>
+    
+    
+   <div class="form-group">
+   	<label for="name" class="col-sm-3 control-label">otros detalle</label>
+   	<div class="col-md-8">
+    <%= f.text_area :otros_detalle, class: 'form-control' %>
+  </div>
+  </div>
+  
+  <div class="form-group">
+	<div class="col-sm-offset-4 col-sm-10">
+    <%= button_tag(type: 'submit', class: "btn btn-success", :name => nil) do %>
+      <span class="glyphicon glyphicon-floppy-disk"></span>  Guardar
+    <% end %>
+  </div>
+  </div>
+<% end %>
+</div>
+</div>

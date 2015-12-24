@@ -1,0 +1,37 @@
+<%= form_for(@producto) do |f| %>
+  <% if @producto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@producto.errors.count, "error") %> prohibited this producto from being saved:</h2>
+
+      <ul>
+      <% @producto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :precio_uni %><br>
+    <%= f.text_field :precio_uni %>
+  </div>
+  <div class="field">
+    <%= f.label :stock %><br>
+    <%= f.text_field :stock %>
+  </div>
+   <div class="field">
+    <%= f.label :category_id %><br>
+    <%= f.collection_select :category_id, Category.all, :id, :nombre, {}, class: "form-control", prompt: "Seleccione Municipio" %>
+  </div>
+  <div class="field">
+    <%= f.label :arch %><br>
+    <%= f.file_field :arch %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

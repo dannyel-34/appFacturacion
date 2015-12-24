@@ -1,0 +1,54 @@
+<div class="container">
+  <br>
+  
+  <div class="row">
+    <div class="text-center">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mynewpost">
+        <span class="glyphicon glyphicon-plus"></span> Nuevo
+      </button>
+    </div>
+  </div>
+  
+  <br>
+  <br>
+  
+  <div class="row" id="container_posts">
+    <%= render @posts %>
+  </div>
+  
+  <!-- Modal create action -->
+  <%= form_for(@post, remote: true) do |f| %>
+    <div class="modal fade" id="mynewpost" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Nuevo mensaje</h4>
+          </div>
+          
+          <div class="modal-body" style="background: #eee; color: #000;">
+            
+            <div class="field">
+              <%= f.label :titulo %><br>
+              <%= f.text_area :title, class: "form-control post_title" %>              
+            </div>
+            
+            <div class="field">
+              <%= f.label :comentario %><br>
+              <%= f.text_area :content, class: "form-control post_content" %>
+            </div>
+            
+          </div>
+          
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <%= submit_tag "Create", class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  
+</div>

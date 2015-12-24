@@ -1,0 +1,31 @@
+<div class='factura'>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @factura.fecha %>
+</p>
+
+<p>
+  <strong>Num pago:</strong>
+  <%= @factura.num_pago %>
+</p>
+
+<p>
+  <strong>Clientes:</strong>
+  <%= @factura.cliente_id %>
+</p>
+
+<p>
+  <strong>Modo pagos:</strong>
+  <%= @factura.modo_pago.nombre %>
+</p>
+
+<p>
+  <strong>Articulo:</strong>
+  <%= @factura.detalle_id %>
+</p>
+
+<%= link_to 'Edit', edit_factura_path(@factura) %> |
+<%= link_to 'Back', facturas_path %>
+</div>
